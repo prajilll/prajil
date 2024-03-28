@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>PRAJIL PREMIER LEAGUE</title>
+    <style>
+        body {
+            /* Set background image */
+            background-image: url('https://t3.ftcdn.net/jpg/02/66/06/18/240_F_266061854_ELjfKSRqdoyhmc9D2WHMZfHCEVvBbMef.jpg');
+            /* Adjust background image properties */
+            background-position: center center; /* Center the background image */
+            background-repeat: no-repeat; /* Ensure the background image does not repeat */
+            background-attachment: fixed; /* Keep the background image fixed while scrolling */
+            background-size: cover; /* Cover the entire background */
+            /* Optionally, you can set background color if the image doesn't cover the entire background */
+            background-color: #f0f0f0; /* Example color */
+        }
+
+        /* Additional CSS styles */
+    </style>
+</head>
+<body>
+    <h1 align="Center">{{d.title}}</h1>
+    <br>
+
+    <marquee behavior="" direction="Left"> 
+        <div >
+            <img src="{{d.score_strip.0.team_flag}}" alt="d.score_strip.0.short_name">
+            <h1>{{d.score_strip.0.name}}</h1>
+            <h2>{{d.score_strip.0.score}}</h2>
+            <h3>{{d.score_strip.0.run_rate}}</h3>
+            
+            {% if d.score_strip.0.currently_batting == True %}
+            <h3>Currently Batting</h3>
+            {% elif d.score_strip.0.currently_batting == False %}
+            <h3>Bowling</h3>
+            {% endif %}
+        </div>
+    </marquee>
+   
+    <marquee behavior="" direction="right"> 
+        <div >
+            <img src="{{d.score_strip.1.team_flag}}" alt="d.score_strip.1.short_name">
+            <h1>{{d.score_strip.1.name}}</h1>
+            <h2>{{d.score_strip.1.score}}</h2>
+            <h3>{{d.score_strip.1.run_rate}}</h3>
+            
+            {% if d.score_strip.1.currently_batting == True %}
+            <h3>Currently Batting</h3>
+            {% elif d.score_strip.1.currently_batting == False %}
+            <h3>Bowling</h3>
+            {% endif %}
+        </div>
+    </marquee>
+        <!--<img src="https://noveloffice.com/wp-content/uploads/2022/10/Team-Kosh-e1665125483193.webp" alt="">
+        <h1>kosh</h1>
+        --> 
+        <script>
+            console.log('Page reloaded');
+            // Reload the page every 30 seconds (30,000 milliseconds)
+            setTimeout(function() {
+                console.log('Reloaded');
+                location.reload();
+            }, 30000);
+        </script>
+</body>
+</html>
